@@ -9,22 +9,32 @@ class Contacts:
         self.telephone = telephone
 
 
+contact_list = list()
+
+
 
 f = open('contacts.txt', 'r')
-contents = f.read().split('\n')
-f.close()
+contact_list = f.read()
+for lines in contact_list:
+    contact_lists = contact_list.split(",")
+
+
+
 
 ##print(contents[1])
-    user_input = ""
+user_input = ""
 
 
-    print ("press 1 to show all contacts")
-    while user_input != "e":
+while user_input != "e":
         print ("options = ")
         print("1 = enter contact information")
         print ("2 = display all contacts")
         print ("e = close program ")
+        print("3 = search for a contact ")
+        print("4 = search and edit contacts")
         user_input = input("select option: ")
+
+
         if user_input == "1":
             print("enter contact information")
 
@@ -36,11 +46,28 @@ f.close()
 
             person = [name, ", ", address, ",", birthday, ", ", telephone]
             with open('contacts.txt', 'a') as f:
-            for persons in person:
-            f.write(persons)
-            f.write('\n')
+                for persons in person:
+                    f.write(persons)
+                f.write('\n')
 
             print ("details have been stored ")
+        elif user_input == "2":
+            file = open('contacts.txt', 'r')
+            data = file.read()
+            file.close()
+            print(data)
+        elif user_input == "3":
+            file = open('contacts.txt', 'r')
+            search = input("enter the name of the contact you want to find :")
+
+
+
+
+
+
+
+
+
 
 
 ##if __name__ == "__main__"
