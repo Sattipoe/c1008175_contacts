@@ -14,9 +14,8 @@ contact_list = list()
 
 
 f = open('contacts.txt', 'r')
-contact_list = f.read()
-for lines in contact_list:
-    contact_lists = contact_list.split(",")
+contact_list = f.readlines()
+f.close()
 
 
 
@@ -31,7 +30,6 @@ while user_input != "e":
         print ("2 = display all contacts")
         print ("e = close program ")
         print("3 = search for a contact ")
-        print("4 = search and edit contacts")
         user_input = input("select option: ")
 
 
@@ -57,8 +55,18 @@ while user_input != "e":
             file.close()
             print(data)
         elif user_input == "3":
-            file = open('contacts.txt', 'r')
-            search = input("enter the name of the contact you want to find :")
+            search = input(" enter the name of the contact you want to find: ")
+            for line in contact_list:
+                if search in line:
+                    print(line)
+                    edit = input("would you like to edit the contact")
+                    if edit == "yes":
+                        lines = line.split(",")
+
+
+"""     used code from
+https://www.delftstack.com/howto/python/python-replace-line-in-file/#:~:text=Use%20the%20for%20Loop%20Along%20With%20the%20replace,Replace%20the%20Text%20in%20a%20Line%20in%20Pytho
+to help with the process of replacing and updating code"""
 
 
 
