@@ -3,6 +3,9 @@ from lib2to3.pgen2.grammar import name
 
 class Contacts:
     def __init__(self, name, address , birthday, telephone):
+        """
+        initialize the Contacts class and takes in 4 variables Name, Address, Birthday, Telephone
+        """
         self.name = name
         self.address = address
         self.birthday = birthday
@@ -42,7 +45,7 @@ while user_input != "e":
             birthday = input(" Birthday = ")
             telephone = input(" Telephone number = ")
 
-            person = [name, ", ", address, ",", birthday, ", ", telephone]
+            person = [name, ",", address, ",", birthday, ",", telephone]
             with open('contacts.txt', 'a') as f:
                 for persons in person:
                     f.write(persons)
@@ -56,17 +59,29 @@ while user_input != "e":
             print(data)
         elif user_input == "3":
             search = input(" enter the name of the contact you want to find: ")
+            count=-1
             for line in contact_list:
+                count+=1
                 if search in line:
-                    print(line)
+                    print(str(count) + " "+ line)
                     edit = input("would you like to edit the contact")
                     if edit == "yes":
-                        lines = line.split(",")
+                        new_input = input("Enter new details seperated by , : ")
+                        f = open('contacts.txt', 'r')
+                        contact_list = f.readlines()
+                        f.close()
+
+                        contact_list[count] = new_input
+
+                        f = open('contacts.txt', 'w')
+                        for i in range(len(contact_list)):
+                            f.write(contact_list[i])
+                        f.close()
 
 
-"""     used code from
-https://www.delftstack.com/howto/python/python-replace-line-in-file/#:~:text=Use%20the%20for%20Loop%20Along%20With%20the%20replace,Replace%20the%20Text%20in%20a%20Line%20in%20Pytho
-to help with the process of replacing and updating code"""
+
+#  used code from https://www.delftstack.com/howto/python/python-replace-line-in-file/#:~:text=Use%20the%20for%20Loop%20Along%20With%20the%20replace,Replace%20the%20Text%20in%20a%20Line%20in%20Pytho
+# to help with the process of replacing and updating code
 
 
 
