@@ -44,7 +44,7 @@ while user_input != "e":
             print("enter contact information")
 
 
-            name = input( " First and last name = ")
+            name = input( "name = ")
             address = input("Address =  ")
             birthday = input(" Birthday = ")
             telephone = input(" Telephone number = ")# used to alllow user to enter contact info
