@@ -21,8 +21,20 @@ f = open('contacts.txt', 'r')
 contact_list = f.readlines()#readlines seperated it into lines
 f.close()
 user_input = ""#to be able to give the user input a variable late
+if user_input != "e":
+        print ("options = ")
+        print("1 = enter contact information")
+        print ("2 = display all contacts")
+        print ("e = close program ")
+        print("3 = search for a contact ")#interface that shows up when code is ran
+        user_input = input("select option: ")#input allows the user to input something
+
+
+
+
 
 def userinput1():
+    if user_input == "1":
         print("enter contact information")
 
         name = input("name = ")
@@ -41,6 +53,7 @@ def userinput1():
 userinput1()
 
 def userinput2():
+    if user_input == "2":
         file = open('contacts.txt', 'r')
         data = file.read()
         file.close()
@@ -48,7 +61,8 @@ def userinput2():
 userinput2()
 
 def userinput3(contact_list):
-    for line in contact_list:
+    if user_input == "3":
+        for line in contact_list:
             count = -1
             count+=1 #gives the contacts a number to allow differentiation
             search = input(" enter the name/address/number/birthday of the contact you want to find: ")
@@ -80,22 +94,13 @@ def userinput3(contact_list):
 userinput3(contact_list)
 
 
-
-while user_input != "e":
-        print ("options = ")
-        print("1 = enter contact information")
-        print ("2 = display all contacts")
-        print ("e = close program ")
-        print("3 = search for a contact ")#interface that shows up when code is ran
-        user_input = input("select option: ")#input allows the user to input something
-
-if user_input == 1:
+if user_input == "1":
     userinput1()
 
-if user_input == 2:
+if user_input == "2":
     userinput2()
 
-if user_input == 3:
+if user_input == "3":
     userinput3()
 
 if user_input == "e":
